@@ -19,4 +19,17 @@ public class ConsumptionTaxTest {
         assertEquals(1080, actual);
     }
 
+    @Test
+    @DisplayName("Zero price should return 0")
+    public void _should_return_zero_price() throws Exception {
+        // Setup
+        int price = 0;
+        double taxRate = 1.08;
+        ConsumptionTax consumptionTax = new ConsumptionTax(taxRate);
+        // Exercise
+        double actual = consumptionTax.calcurate(price);
+        // Verify
+        assertEquals(0, actual);
+    }
+
 }
